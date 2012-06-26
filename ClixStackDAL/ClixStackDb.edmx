@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClixStackDbModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ClixStackDbModelStoreContainer">
+          <EntitySet Name="StackLines" EntityType="ClixStackDbModel.Store.StackLines" store:Type="Tables" />
+          <EntitySet Name="Stacks" EntityType="ClixStackDbModel.Store.Stacks" store:Type="Tables" />
+          <AssociationSet Name="Stack_StackLines" Association="ClixStackDbModel.Store.Stack_StackLines">
+            <End Role="Stacks" EntitySet="Stacks" />
+            <End Role="StackLines" EntitySet="StackLines" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="StackLines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Stack" Type="nvarchar" />
+          <Property Name="Line" Type="int" />
+          <Property Name="StackId" Type="int" />
+        </EntityType>
+        <EntityType Name="Stacks">
+          <Key>
+            <PropertyRef Name="StackId" />
+          </Key>
+          <Property Name="StackId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <Association Name="Stack_StackLines">
+          <End Role="Stacks" Type="ClixStackDbModel.Store.Stacks" Multiplicity="0..1" />
+          <End Role="StackLines" Type="ClixStackDbModel.Store.StackLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stacks">
+              <PropertyRef Name="StackId" />
+            </Principal>
+            <Dependent Role="StackLines">
+              <PropertyRef Name="StackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClixStackDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ClixStackDbEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="StackLines" EntityType="ClixStackDbModel.StackLine" />
+          <EntitySet Name="Stacks" EntityType="ClixStackDbModel.Stack" />
+          <AssociationSet Name="Stack_StackLines" Association="ClixStackDbModel.Stack_StackLines">
+            <End Role="Stack" EntitySet="Stacks" />
+            <End Role="StackLine" EntitySet="StackLines" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="StackLine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Stack" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Line" />
+          <Property Type="Int32" Name="StackId" />
+          <NavigationProperty Name="Stack1" Relationship="ClixStackDbModel.Stack_StackLines" FromRole="StackLine" ToRole="Stack" />
+        </EntityType>
+        <EntityType Name="Stack">
+          <Key>
+            <PropertyRef Name="StackId" />
+          </Key>
+          <Property Type="Int32" Name="StackId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StackLines" Relationship="ClixStackDbModel.Stack_StackLines" FromRole="Stack" ToRole="StackLine" />
+        </EntityType>
+        <Association Name="Stack_StackLines">
+          <End Type="ClixStackDbModel.Stack" Role="Stack" Multiplicity="0..1" />
+          <End Type="ClixStackDbModel.StackLine" Role="StackLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stack">
+              <PropertyRef Name="StackId" />
+            </Principal>
+            <Dependent Role="StackLine">
+              <PropertyRef Name="StackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClixStackDbModelStoreContainer" CdmEntityContainer="ClixStackDbEntities" >
+          <EntitySetMapping Name="StackLines">
+            <EntityTypeMapping TypeName="ClixStackDbModel.StackLine">
+              <MappingFragment StoreEntitySet="StackLines">
+                <ScalarProperty Name="StackId" ColumnName="StackId" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="Stack" ColumnName="Stack" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stacks">
+            <EntityTypeMapping TypeName="ClixStackDbModel.Stack">
+              <MappingFragment StoreEntitySet="Stacks">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StackId" ColumnName="StackId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ClixStackDb" >
+        <EntityTypeShape EntityType="ClixStackDbModel.StackLine" Width="1.5" PointX="3" PointY="0.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ClixStackDbModel.Stack" Width="1.5" PointX="0.75" PointY="1" Height="1.7879850260416674" />
+        <AssociationConnector Association="ClixStackDbModel.Stack_StackLines" >
+          <ConnectorPoint PointX="2.25" PointY="1.8939925130208337" />
+          <ConnectorPoint PointX="3" PointY="1.8939925130208337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -57,7 +57,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="App_Data\ClixStackDb.sdf" />
     <Content Include="Content\jQuery-UI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\jQuery-UI\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="Content\jQuery-UI\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -156,7 +155,9 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
