@@ -40,19 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\DbEngine\DbEngine.cs" />
-    <Compile Include="App\DbEngine\SchemaActionType.cs" />
-    <Compile Include="App\DbEngine\SchemaTable.cs" />
-    <Compile Include="App\DbEngine\SchemaTableColumn.cs" />
-    <Compile Include="App\DbEngine\SchemaTableColumnType.cs" />
-    <Compile Include="App\Extensions\Cloning.cs" />
-    <Compile Include="App\Extensions\Collections.cs" />
-    <Compile Include="App\Extensions\Conversions.cs" />
-    <Compile Include="App\Extensions\Enumerator.cs" />
-    <Compile Include="App\Extensions\Evaluations.cs" />
-    <Compile Include="App\Extensions\Objects.cs" />
-    <Compile Include="App\Extensions\Strings.cs" />
-    <Compile Include="App\Settings\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stack\Entities\Stack.cs" />
     <Compile Include="Stack\Entities\StackData.cs" />
