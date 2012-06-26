@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClixStack", "ClixStack\Clix
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClixStackWeb", "ClixStackWeb\ClixStackWeb.csproj", "{890A397D-491C-4F02-A3D0-0DB412E64849}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClixStackDAL", "ClixStackDAL\ClixStackDAL.csproj", "{D2921E22-A9A9-4B64-B91D-2A8F1A0C2EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{890A397D-491C-4F02-A3D0-0DB412E64849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{890A397D-491C-4F02-A3D0-0DB412E64849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{890A397D-491C-4F02-A3D0-0DB412E64849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2921E22-A9A9-4B64-B91D-2A8F1A0C2EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2921E22-A9A9-4B64-B91D-2A8F1A0C2EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2921E22-A9A9-4B64-B91D-2A8F1A0C2EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2921E22-A9A9-4B64-B91D-2A8F1A0C2EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
