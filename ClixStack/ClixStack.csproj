@@ -53,13 +53,13 @@
     <Compile Include="Stack\Entities\StackObjectMathOperatorType.cs" />
     <Compile Include="Stack\Entities\StackObjectType.cs" />
     <Compile Include="Stack\Entities\StackObjectValueType.cs" />
-    <Compile Include="Stack\Extensions\Command.cs" />
-    <Compile Include="Stack\Extensions\Encoding.cs" />
-    <Compile Include="Stack\Extensions\Encryption.cs" />
-    <Compile Include="Stack\Extensions\Math.cs" />
-    <Compile Include="Stack\Extensions\Exception.cs" />
-    <Compile Include="Stack\Extensions\Expression.cs" />
-    <Compile Include="Stack\Extensions\Indexing.cs" />
+    <Compile Include="Stack\Engine\Command.cs" />
+    <Compile Include="Stack\Engine\Encoding.cs" />
+    <Compile Include="Stack\Engine\Encryption.cs" />
+    <Compile Include="Stack\Engine\Math.cs" />
+    <Compile Include="Stack\Engine\Exception.cs" />
+    <Compile Include="Stack\Engine\Expression.cs" />
+    <Compile Include="Stack\Engine\Indexing.cs" />
     <Compile Include="Stack\Entities\StackResults.cs" />
     <Compile Include="StackManager.cs" />
   </ItemGroup>
